@@ -53,7 +53,7 @@ jobs:
           echo "APK found at: $APK_PATH"
       
       - name: Upload APK as artifact
-        uses: actions/upload-artifact-action@latest  # Updated to the new action
+        uses: actions/upload-artifact@v3  # Correct version, ignore deprecation warning
         with:
           name: ai-hub-apk
           path: ${{ steps.apk.outputs.apk_path }}
