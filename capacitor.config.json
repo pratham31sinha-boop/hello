@@ -1,0 +1,17 @@
+{
+  "appId": "com.aihub.app",
+  "appName": "AI Hub 3X",
+  "webDir": "out",
+  "server": {
+    "cleartext": true
+  },
+  "android": {
+    "buildOptions": {
+      "keystorePath": "android/app/release-key.jks",
+      "keystorePassword": "your-keystore-password",
+      "keystoreAlias": "release-key",
+      "keystoreAliasPassword": "your-key-password",
+      "releaseType": "APK"
+    }
+  }
+}
