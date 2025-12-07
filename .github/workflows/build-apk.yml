@@ -53,7 +53,18 @@ jobs:
           echo "APK found at: $APK_PATH"
       
       - name: Upload APK as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ai-hub-apk
+          path: ${{ steps.apk.outputs.apk_path }}
+          retention-days: 30
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: ${{ steps.apk.outputs.apk_path }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
           path: ${{ steps.apk.outputs.apk_pat_
